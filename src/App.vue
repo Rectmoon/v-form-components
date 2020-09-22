@@ -1,65 +1,66 @@
 <template lang='pug'>
-  div#app   
-  
-    keep-alive
-      router-view(v-if="$route.meta.isKeepAlive", class='view')
+#app 
+  keep-alive
+    router-view.view(v-if='$route.meta.isKeepAlive')
 
-    router-view(v-if="!$route.meta.isKeepAlive", class='view')
+  router-view.view(v-if='!$route.meta.isKeepAlive')
 
-    footer
-      nav 
-        router-link(v-for = 'r in routes', :key="r.name", :to='r.path') {{r.name}}
-      
+  footer
+    nav 
+      router-link(v-for='r in routes', :key='r.name', :to='r.path') {{ r.name }}
 </template>
  
 <script>
 export default {
-  name: "App",
+  name: 'App',
 
   data() {
     return {
       routes: [
         {
-          path: "/a",
-          name: "a"
+          path: '/a',
+          name: 'a',
         },
 
         {
-          path: "/b",
-          name: "b"
+          path: '/b',
+          name: 'b',
         },
 
         {
-          path: "/c",
-          name: "c"
+          path: '/c',
+          name: 'c',
         },
 
         {
-          path: "/d",
-          name: "d"
-        }
-      ]
-    };
-  }
-};
+          path: '/d',
+          name: 'd',
+        },
+      ],
+    }
+  },
+}
 </script>
 
 <style lang='scss'>
+@import './scss/common.scss';
+
+body {
+  height: 100%;
+}
+
 .view {
-  position: absolute;
-  width: 100%;
-  top: 40px;
-  left: 0;
-  bottom: 44px;
-  overflow-y: scroll;
+  height: 110vh;
 }
 
 footer {
   height: 44px;
   position: fixed;
+  z-index: 10;
   bottom: 0;
   left: 0;
   width: 100%;
+  background-color: #fff;
 
   nav {
     height: 100%;

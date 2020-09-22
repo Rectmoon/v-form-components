@@ -1,15 +1,15 @@
 <template lang='pug'>
-  .page
-    div.container 11
+.page
+  .container 11
 
-    button(@click="$router.push('/detail/1')") detail
+  button(@click='$router.push("/detail/1")') detail
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 .container {
   height: 98vh;
 }

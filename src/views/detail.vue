@@ -1,6 +1,7 @@
 <template lang='pug'>
-  div.detail
-    button(@click="handleClick") back
+.detail
+  .container detail
+  button(@click='handleClick') back
 </template>
 
 <script>
@@ -9,12 +10,10 @@ export default {
 
   methods: {
     handleClick() {
-      alert();
-      this.$router.go(-1);
-      // this.$router.push("/a");
-    }
-  }
-};
+      this.$router.go(-1)
+    },
+  },
+}
 </script>
 
 <style>

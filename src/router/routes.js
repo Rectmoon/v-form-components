@@ -1,41 +1,44 @@
-import A from "@/views/a";
+const VButtonPage = () => import('@/views/button')
+import A from '@/views/a'
+const B = () => import('@/views/b')
+import Detail from '@/views/detail'
 // const A = () => import("@/views/a");
-const B = () => import("@/views/b");
+/* 
 const C = () => import("@/views/c");
-const D = () => import("@/views/d");
-const VButtonPage = () => import("@/views/button");
-const Detail = () => import("@/views/detail");
+const D = () => import("@/views/d"); */
+// const Detail = () => import('@/views/detail')
 
 export default [
   {
-    path: "/",
-    name: "VButtonPage",
+    path: '/',
+    name: 'VButtonPage',
     component: VButtonPage
   },
   {
-    path: "/a",
-    name: "A",
+    path: '/a',
+    name: 'A',
     component: A,
     meta: {
-      isKeepAlive: true
+      keepAlive: true
     }
   },
   {
-    path: "/detail/:id",
-    name: "Detail",
+    path: '/detail/:id',
+    name: 'Detail',
     component: Detail,
     meta: {
-      isKeepAlive: false
-    }
-  }
-  /*   {
-    path: "/b",
-    name: "B",
-    component: B,
-    meta: {
-      isKeepAlive: true
+      keepAlive: true
     }
   },
+  {
+    path: '/b',
+    name: 'B',
+    component: B,
+    meta: {
+      keepAlive: true
+    }
+  }
+  /*  
   {
     path: "/c",
     name: "C",
@@ -46,4 +49,4 @@ export default [
     name: "D",
     component: D
   } */
-];
+]

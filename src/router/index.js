@@ -1,30 +1,22 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import routes from "./routes";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import routes from './routes'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
-/* function scrollBehavior(to, from, savedPosition) {
-  if (savedPosition || typeof savedPosition === "undefined") {
-    from.meta.isKeepAlive =
-      typeof from.meta.isKeepAlive === "undefined" ? undefined : false;
-    to.meta.isKeepAlive =
-      typeof to.meta.isKeepAlive === "undefined" ? undefined : true;
-    if (savedPosition) {
-      return savedPosition;
-    }
-  } else {
-    from.meta.isKeepAlive =
-      typeof from.meta.isKeepAlive === "undefined" ? undefined : true;
-    to.meta.isKeepAlive =
-      typeof to.meta.isKeepAlive === "undefined" ? undefined : false;
-  }
-}
- */
 export default new VueRouter({
-  mode: "hash",
+  mode: 'hash',
 
-  routes
+  routes,
 
-  // scrollBehavior
-});
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      if (from.meta.keepAlive) {
+        from.meta.savedPosition = document.body.scrollTop
+      }
+      return { x: 0, y: to.meta.savedPosition || 0 }
+    }
+  }
+})
